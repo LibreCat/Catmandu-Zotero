@@ -52,6 +52,17 @@
       }
    },
    "release_status" : "stable",
+   "resources" : {
+      "bugtracker" : {
+         "web" : "https://github.com/LibreCat/Catmandu-Zotero/issues"
+      },
+      "homepage" : "https://github.com/LibreCat/Catmandu-Zotero",
+      "repository" : {
+         "type" : "git",
+         "url" : "https://github.com/LibreCat/Catmandu-Zotero.git",
+         "web" : "https://github.com/LibreCat/Catmandu-Zotero"
+      }
+   },
    "version" : "0.01",
    "x_contributors" : [
       "Patrick Hochstenbach <patrick.hochstenbach@ugent.be>"
