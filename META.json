@@ -64,8 +64,9 @@
          "web" : "https://github.com/LibreCat/Catmandu-Zotero"
       }
    },
-   "version" : "0.01",
+   "version" : "0.02",
    "x_contributors" : [
+      "Jakob Voß <jakob@nichtich.de>",
       "Patrick Hochstenbach <patrick.hochstenbach@ugent.be>"
    ]
 }
