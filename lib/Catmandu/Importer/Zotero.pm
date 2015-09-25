@@ -5,12 +5,12 @@ use Catmandu::Util qw(:is);
 use WWW::Zotero;
 use Moo;
 
-
 with 'Catmandu::Importer';
 
-has userID  => (is => 'ro');
-has groupID => (is => 'ro');
-has apiKey  => (is => 'ro');
+has userID       => (is => 'ro');
+has groupID      => (is => 'ro');
+has collectionID => (is => 'ro');
+has apiKey       => (is => 'ro');
 
 # From WWW::Zotero
 has sort      => (is => 'ro');
@@ -46,7 +46,12 @@ sub generator {
     $options{tag}       = $self->tag if $self->tag;
     $options{include}   = 'data';
     
-    $self->client->listItems(%options, generator => 1);
+    if ($self->collectionID) {
+        $options{collectionKey} = $self->collectionID;
+        $self->client->listCollectionItems(%options, generator => 1);
+    } else {
+        $self->client->listItems(%options, generator => 1);
+    }
 }
 
 1;
@@ -76,32 +81,36 @@ Catmandu::Importer::Zotero - Import records from Zotero web
 
 =head1 CONFIGURATION
 
-See L<https://www.zotero.org/support/dev/web_api/v3/basics> for the search syntax.
-
 =over
 
-=item userID | groupID
+=item userID 
 
-Set the user or group identifier for which you want to export records
+User identifier (given at L<https://www.zotero.org/settings/keys>). Required
+unless C<groupID> is set.
+
+=item groupID
+
+Group identifier (numeric part of the RSS library feed of a group)  
+
+=item collectionID
+
+Collection key (alphanumeric identifier)
 
 =item apiKey
 
-Zotero API key for authenticated access.
+Zotero API key for authenticated access
 
 =item sort      
 
-dateAdded, dateModified, title, creator, type, date, publisher, 
-publicationTitle, journalAbbreviation, language, accessDate, 
-libraryCatalog, callNumber, rights, addedBy, numItems (default dateModified)
+C<dateAdded>, C<dateModified> (default), C<title>, C<creator>, C<type>,
+C<date>, C<publisher>, C<publicationTitle>, C<journalAbbreviation>,
+C<language>, C<accessDate>, C<libraryCatalog>, C<callNumber>, C<rights>,
+C<addedBy>, or C<numItems>
     
-=item direction 
+=item direction
 
-asc, desc
+C<asc> or C<desc>
     
-=item include   
-
-bib, data
-
 =item itemKey    
 
 A comma-separated list of item keys. Valid only for item requests. Up to 
@@ -109,36 +118,38 @@ A comma-separated list of item keys. Valid only for item requests. Up to
     
 =item itemType   
 
-Item type search
-    
+Item type search. See
+L<https://www.zotero.org/support/dev/web_api/v3/basics#search_syntax>
+for boolean search syntax.
+
 =item q   
 
-Quick search
+Quick search to search titles and individual creator fields, or all fields if
+qmode is set to C<everything>.
     
 =item qmode    
 
-titleCreatorYear, everything
+C<titleCreatorYear> (default) or C<everything>
     
 =item since   
 
-integer
+Return only objects modified after the specified library version.
     
 =item tag 
 
-Tag search
+Tag search. Supports Boolean search like item type search.
 
 =back
 
 =head1 DESCRIPTION
 
-Every Catmandu::Importer is a L<Catmandu::Iterable> all its methods are
-inherited. The Catmandu::Importer::Zotero methods are not idempotent: Zotero
-feeds can only be read once.
+This L<Catmandu::Importer> imports bibliographic data from
+L<Zotero|https://www.zotero.org> reference management service.
 
 =head1 SEE ALSO
 
-L<WWW::Zotero> ,
-L<Catmandu::Importer> ,
+L<WWW::Zotero>,
+L<Catmandu::Importer>,
 L<Catmandu::Iterable>
 
 =cut
