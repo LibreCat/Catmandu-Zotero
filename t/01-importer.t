@@ -1,6 +1,5 @@
 use strict;
 use warnings;
-use Catmandu::Importer::Blacklight;
 use Test::More;
 
 BEGIN {
