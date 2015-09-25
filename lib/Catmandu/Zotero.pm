@@ -22,7 +22,7 @@ Catmandu::Zotero - Catmandu modules for working with Zotero web
 
 =cut
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
 =head1 MODULES
 
