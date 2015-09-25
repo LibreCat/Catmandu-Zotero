@@ -24,7 +24,7 @@ Catmandu::Zotero - Catmandu modules for working with Zotero web
 
 # AUTHOR
 
-Patrick Hochstenbach, `<patrick.hochstenbach at ugent.be>`
+Patrick Hochstenbach, `patrick.hochstenbach at ugent.be`
 
 # LICENSE AND COPYRIGHT
 

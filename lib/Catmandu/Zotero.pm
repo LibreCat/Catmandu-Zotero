@@ -1,5 +1,10 @@
 package Catmandu::Zotero;
 
+our $VERSION = '0.02';
+
+1;
+__END__
+
 =head1 NAME
 
 Catmandu::Zotero - Catmandu modules for working with Zotero web
@@ -20,10 +25,6 @@ Catmandu::Zotero - Catmandu modules for working with Zotero web
 	   print "%s %s\n", $item->{_id} , $item->{title}->[0];
   });
 
-=cut
-
-our $VERSION = '0.01';
-
 =head1 MODULES
 
 =over
@@ -34,7 +35,7 @@ our $VERSION = '0.01';
 
 =head1 AUTHOR
 
-Patrick Hochstenbach, C<< <patrick.hochstenbach at ugent.be> >>
+Patrick Hochstenbach, C<patrick.hochstenbach at ugent.be>
 
 =head1 LICENSE AND COPYRIGHT
 
@@ -47,5 +48,3 @@ by the Free Software Foundation; or the Artistic License.
 See http://dev.perl.org/licenses/ for more information.
 
 =cut
-
-1;
