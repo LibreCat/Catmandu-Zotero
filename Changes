@@ -1,6 +1,9 @@
 Revision history for Zotero
 
 {{$NEXT}}
+    - Removed wrong test dependency
+    - Extended documentation
+    - Added new option collectionID
 
 0.02  2015-09-25 11:16:23 CEST
 	- Fixed test dependency errors
