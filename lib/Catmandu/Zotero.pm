@@ -9,6 +9,16 @@ __END__
 
 Catmandu::Zotero - Catmandu modules for working with Zotero web
 
+=begin markdown
+
+# STATUS
+
+[![Build Status](https://travis-ci.org/LibreCat/Catmandu-Zotero.png)](https://travis-ci.org/LibreCat/Catmandu-Zotero)
+[![Coverage Status](https://coveralls.io/repos/LibreCat/Catmandu-Zotero/badge.png)](https://coveralls.io/r/LibreCat/Catmandu-Zotero)
+[![Kwalitee Score](http://cpants.cpanauthors.org/dist/Catmandu-Zotero.png)](http://cpants.cpanauthors.org/dist/Catmandu-Zotero)
+
+=end markdown
+
 =head1 SYNOPSIS
 
   # From the command line

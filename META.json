@@ -1,16 +1,16 @@
 {
    "abstract" : "Catmandu modules for working with Zotero web",
    "author" : [
-      "Patrick Hochstenbach, C<< <patrick.hochstenbach at ugent.be> >>"
+      "Patrick Hochstenbach <patrick.hochstenbach@gmail.com>"
    ],
    "dynamic_config" : 0,
-   "generated_by" : "Dist::Zilla version 5.035, Dist::Milla version v1.0.15, CPAN::Meta::Converter version 2.150005",
+   "generated_by" : "Dist::Zilla version 5.035, Dist::Milla version v1.0.8, CPAN::Meta::Converter version 2.150001",
    "license" : [
       "perl_5"
    ],
    "meta-spec" : {
       "url" : "http://search.cpan.org/perldoc?CPAN::Meta::Spec",
-      "version" : 2
+      "version" : "2"
    },
    "name" : "Catmandu-Zotero",
    "no_index" : {
@@ -31,7 +31,7 @@
       },
       "develop" : {
          "requires" : {
-            "Dist::Milla" : "v1.0.15",
+            "Dist::Milla" : "v1.0.8",
             "Test::Pod" : "1.41"
          }
       },
@@ -66,8 +66,7 @@
    },
    "version" : "0.02",
    "x_contributors" : [
-      "Jakob Voß <jakob@nichtich.de>",
-      "Patrick Hochstenbach <patrick.hochstenbach@ugent.be>"
+      "Jakob Voß <jakob.voss@gbv.de>"
    ]
 }
 
