@@ -1,6 +1,7 @@
 Revision history for Zotero
 
 {{$NEXT}}
+    - requires 'Catmandu', '>=0.9,!=0.9402,!=0.9401';
 
 0.04  2015-09-29 10:17:47 CEST
 	- Require 0.9403 or better to fix overloaded 'sort' method
