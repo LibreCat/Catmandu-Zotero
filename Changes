@@ -1,6 +1,8 @@
 Revision history for Zotero
 
 {{$NEXT}}
+
+0.05  2015-09-29 13:47:32 CEST
     - requires 'Catmandu', '>=0.9,!=0.9402,!=0.9401';
 
 0.04  2015-09-29 10:17:47 CEST
