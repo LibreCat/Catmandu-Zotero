@@ -7,7 +7,7 @@ on 'test', sub {
   requires 'Test::Pod','0';
 };
 
-requires 'Catmandu', '>=0.9';
+requires 'Catmandu', '>=0.9403';
 requires 'WWW::Zotero', '>=0.03';
 
 # Need recent SSL to talk to https endpoint correctly
