@@ -4,6 +4,7 @@ use Catmandu::Sane;
 use Catmandu::Util qw(:is);
 use WWW::Zotero;
 use Moo;
+use feature 'state';
 
 with 'Catmandu::Importer';
 
@@ -32,26 +33,46 @@ sub _build_client {
 sub generator {
     my ($self) = @_;
 
-    my %options = ();
+    sub { 
+        state $generator;
 
-    $options{user}      = $self->userID if $self->userID;
-    $options{group}     = $self->groupID if $self->groupID;
-    $options{sort}      = $self->sort if $self->sort;
-    $options{direction} = $self->direction if $self->direction;
-    $options{itemKey}   = $self->itemKey if $self->itemKey;
-    $options{itemType}  = $self->itemType if $self->itemType;
-    $options{q}         = $self->q if $self->q();
-    $options{qmode}     = $self->qmode if $self->qmode;
-    $options{since}     = $self->since if $self->since;
-    $options{tag}       = $self->tag if $self->tag;
-    $options{include}   = 'data';
-    
-    if ($self->collectionID) {
-        $options{collectionKey} = $self->collectionID;
-        $self->client->listCollectionItems(%options, generator => 1);
-    } else {
-        $self->client->listItems(%options, generator => 1);
-    }
+        unless (defined $generator) {  
+            my %options = ();
+
+            $options{user}      = $self->userID if $self->userID;
+            $options{group}     = $self->groupID if $self->groupID;
+            $options{sort}      = $self->sort if $self->sort;
+            $options{direction} = $self->direction if $self->direction;
+            $options{itemKey}   = $self->itemKey if $self->itemKey;
+            $options{itemType}  = $self->itemType if $self->itemType;
+            $options{q}         = $self->q if $self->q();
+            $options{qmode}     = $self->qmode if $self->qmode;
+            $options{since}     = $self->since if $self->since;
+            $options{tag}       = $self->tag if $self->tag;
+            $options{include}   = 'data';
+            
+            $options{itemType} .= " -attachment";
+
+            if ($self->collectionID) {
+                $options{collectionKey} = $self->collectionID;
+                $generator = $self->client->listCollectionItems(%options, generator => 1);
+            } else {
+                $generator = $self->client->listItems(%options, generator => 1);
+            }
+        }
+
+        my $record = $generator->();
+
+        my $key = $record->{_id};
+
+        # Find children
+        $record->{children} = $self->client->getItemChildren(
+                                    user    => $self->userID,
+                                    group   => $self->groupID,
+                                    itemKey => $record->{_id}
+                              );
+        $record;
+    };
 }
 
 1;
