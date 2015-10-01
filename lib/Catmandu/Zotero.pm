@@ -1,6 +1,6 @@
 package Catmandu::Zotero;
 
-our $VERSION = '0.06';
+our $VERSION = '0.07';
 
 1;
 __END__
