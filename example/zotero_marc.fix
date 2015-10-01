@@ -81,7 +81,7 @@ marc_add('246',a:$.data.shortTitle)
 
 marc_add('250',a:$.data.edition)
 marc_add('260',a:$.data.place
-			  ,b:$.data.publisher
+              ,b:$.data.publisher
               ,b:$.data.distributor
               ,b:$.data.network
               ,b:$.data.institution

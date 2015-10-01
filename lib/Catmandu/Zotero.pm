@@ -48,7 +48,7 @@ Catmandu::Zotero - Catmandu modules for working with Zotero web
 See L<https://github.com/LibreCat/Catmandu-Zotero/tree/master/example/zotero_marc.fix> for an
 use case how to transform a Zotero library into a MARCXML dump:
 
-    $ catmandu convert Zotero --groupID <key> to MARXML --type XML --fix zotero.fix 
+    $ catmandu convert Zotero --groupID <key> to MARC --type XML --fix zotero.fix 
 
 =head1 AUTHOR
 
