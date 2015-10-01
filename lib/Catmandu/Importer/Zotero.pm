@@ -63,6 +63,8 @@ sub generator {
 
         my $record = $generator->();
 
+        return undef unless $record;
+        
         if ($record->{meta}->{numChildren} > 0) {
             # Find children
             $record->{children} = $self->client->getItemChildren(
