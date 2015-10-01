@@ -64,7 +64,7 @@
          "web" : "https://github.com/LibreCat/Catmandu-Zotero"
       }
    },
-   "version" : "0.05",
+   "version" : "0.06",
    "x_contributors" : [
       "Jakob Voß <jakob.voss@gbv.de>"
    ]

@@ -28,9 +28,20 @@ Catmandu::Zotero - Catmandu modules for working with Zotero web
 
 - [Catmandu::Importer::Zotero](https://metacpan.org/pod/Catmandu::Importer::Zotero)
 
+# EXAMPLES
+
+See [https://github.com/LibreCat/Catmandu-Zotero/tree/master/example/zotero\_marc.fix](https://github.com/LibreCat/Catmandu-Zotero/tree/master/example/zotero_marc.fix) for an
+use case how to transform a Zotero library into a MARCXML dump:
+
+    $ catmandu convert Zotero --groupID <key> to MARXML --type XML --fix zotero.fix 
+
 # AUTHOR
 
 Patrick Hochstenbach, `patrick.hochstenbach at ugent.be`
+
+## CONTRIBUTORS
+
+Jakob Voss, `voss at gbv.de`
 
 # LICENSE AND COPYRIGHT
 
