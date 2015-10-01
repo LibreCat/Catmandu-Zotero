@@ -63,14 +63,18 @@ sub generator {
 
         my $record = $generator->();
 
-        my $key = $record->{_id};
-
-        # Find children
-        $record->{children} = $self->client->getItemChildren(
-                                    user    => $self->userID,
-                                    group   => $self->groupID,
-                                    itemKey => $record->{_id}
-                              );
+        if ($record->{meta}->{numChildren} > 0) {
+            # Find children
+            $record->{children} = $self->client->getItemChildren(
+                                        user    => $self->userID,
+                                        group   => $self->groupID,
+                                        itemKey => $record->{_id}
+                                  );
+        }
+        else {
+            $record->{children} = [];
+        }
+        
         $record;
     };
 }
