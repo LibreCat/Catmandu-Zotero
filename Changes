@@ -1,6 +1,8 @@
 Revision history for Zotero
 
 {{$NEXT}}
+
+0.06  2015-10-01 14:52:00 CEST
     - Adding support for reading record attachments
     - Adding an example Fix file to map Zotero to MARC
     
