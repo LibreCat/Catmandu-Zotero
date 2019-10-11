@@ -9,6 +9,7 @@ on 'test', sub {
 
 requires 'Catmandu', '>=0.9,!=0.9402,!=0.9401';
 requires 'WWW::Zotero', '>=0.03';
+requires 'Moo', '0';
 
 # Need recent SSL to talk to https endpoint correctly
 requires 'IO::Socket::SSL', '>=1.993';
