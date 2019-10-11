@@ -7,7 +7,7 @@ on 'test', sub {
   requires 'Test::Pod','0';
 };
 
-requires 'Catmandu', '>=0.9,!=0.9402,!=0.9401';
+requires 'Catmandu', '1.2001';
 requires 'WWW::Zotero', '>=0.03';
 requires 'Moo', '0';
 
